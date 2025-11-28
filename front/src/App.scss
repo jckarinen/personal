@@ -1,3 +1,5 @@
+$bg: #1c1c1c;
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,96 @@
 }
 
 html {
-  background: black;
+  background: $bg;
   color: white;
-  font-family: sans-serif;
+  font-family: "PT Serif", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.links {
+  $link-gap: 1.75rem;
+  display: flex;
+  gap: $link-gap;
+  padding-top: 0.25rem;
+  padding-bottom: 0.75rem;
+
+  a {
+    $link-font-size: 1.2rem;
+    position: relative;
+    text-decoration: underline;
+    color: orange;
+    font-size: 1.2rem;
+
+    & + a::before {
+      $bar-width: 2px;
+      position: absolute;
+      width: $bar-width;
+      height: calc($link-font-size + 0.2rem);
+      top: 2px;
+      left: calc($link-gap / -2 - $bar-width / 2);
+      content: "";
+      display: block;
+      background: orange;
+      pointer-events: none;
+    }
+  }
+
+}
+
+.bio {
+  $border-width: 4px;
+  $border-style: solid orange;
+  $bio-padding: 1rem;
+  background: $bg;
+  max-width: 768px;
+  padding: $bio-padding;
+  position: relative;
+
+  .corner {
+    $side: 45%;
+    background: orange;
+    position: absolute;
+    width: $side;
+    height: $side;
+    z-index: -1;
+
+
+    &.lc {
+      left: -$bio-padding / 2;
+      top: -$bio-padding / 2;
+    }
+
+    &.rc {
+      right: -$bio-padding / 2;
+      bottom: -$bio-padding / 2;
+    }
+  }
+
+  h1 {
+    text-decoration-color: orange;
+    font-size: 2.5rem;
+    font-family: "Roboto Slab", sans-serif;
+    transform: translateX(-0.3rem);
+  }
+
+  p {
+    font-size: 1.2rem;
+
+    & + p {
+      margin-top: 1rem;
+    }
+  }
 }
