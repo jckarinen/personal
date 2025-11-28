@@ -88,13 +88,13 @@ body {
 
 
     &.lc {
-      left: calc(-$bio-padding / 2);
-      top: calc(-$bio-padding / 2);
+      left: calc($bio-padding / -2);
+      top: calc($bio-padding / -2);
     }
 
     &.rc {
-      right: calc(-$bio-padding / 2);
-      bottom: calc(-$bio-padding / 2);
+      right: calc($bio-padding / -2);
+      bottom: calc($bio-padding / -2);
     }
 
   }
